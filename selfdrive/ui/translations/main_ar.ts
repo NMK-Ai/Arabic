@@ -533,7 +533,7 @@
     <message>
         <location filename="../qt/offroad/settings.cc" line="195"/>
         <source>Refresh</source>
-        <translation>리프레시</translation>
+        <translation>تحديث</translation>
     </message>
     <message>
         <location filename="../qt/offroad/settings.cc" line="200"/>
