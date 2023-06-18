@@ -390,7 +390,7 @@ void SoftwarePanel::updateLabels() {
     lastUpdate = timeAgo(QDateTime::fromString(tm, "yyyy-MM-dd HH:mm:ss"));
   }
 
-  versionLbl->setText("OPKR");
+  versionLbl->setText("القائد الآلي");
   lastUpdateLbl->setText(lastUpdate);
   updateBtn->setText(tr("CHECK"));
   updateBtn->setEnabled(true);
