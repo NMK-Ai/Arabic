@@ -162,12 +162,12 @@
     <message>
         <location filename="../qt/sidebar.cc" line="103"/>
         <source>GOOD</source>
-        <translation>مرتفعة</translation>
+        <translation>جيدة</translation>
     </message>
     <message>
         <location filename="../qt/sidebar.cc" line="105"/>
         <source>OK</source>
-        <translation>جيدة</translation>
+        <translation>مرتفعة</translation>
     </message>
     <message>
         <location filename="../qt/sidebar.cc" line="96"/>
@@ -265,7 +265,7 @@
     <message>
         <location filename="../qt/widgets/prime.cc" line="42"/>
         <source>Error getting serial: contact support</source>
-        <translation>시리얼번호 조회 실패: 고객센터에 문의하세요</translation>
+        <translation>خطأ في الحصول على الرقم التسلسلي</translation>
     </message>
 </context>
 <context>
