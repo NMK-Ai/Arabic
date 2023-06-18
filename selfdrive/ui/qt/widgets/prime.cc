@@ -78,7 +78,7 @@ PrimeUserWidget::PrimeUserWidget(QWidget* parent) : QWidget(parent) {
   mainLayout = new QVBoxLayout(this);
   mainLayout->setMargin(30);
 
-  QLabel* commaPrime = new QLabel("OPKR");
+  QLabel* commaPrime = new QLabel("NMK_KSA");
   mainLayout->addWidget(commaPrime, 0, Qt::AlignCenter);
   mainLayout->addSpacing(15);
   QPixmap hkgpix("../assets/addon/img/hkg.png");
