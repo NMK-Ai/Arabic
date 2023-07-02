@@ -3948,4 +3948,127 @@
         <translation>مدير الكشافة على الإنترنت المحلي فقط. سيؤدي هذا إلى تنزيل قواعد البيانات من الإنترنت. مطلوب مساحة تخزين كبيرة. إذا لم تكن سعة التخزين لديك كافية ، فسيتم التحويل البرمجي كلما يقلع النظام.</translation>
     </message>
 </context>
+<context>
+    <name>CarName</name>
+    <message>
+         <location filename="selfdrive/car/hyundai/valyes.py" line="26"/>
+         <source>HYUNDAI AVANTE (AD)</source>
+         <translation>هيونداي النترا (AD)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="27"/>
+            <source>HYUNDAI AVANTE (CN7)</source>
+            <translation>هيونداي النترا (CN7)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="28"/>
+            <source>HYUNDAI AVANTE HYBRID (CN7)</source>
+            <translation>هيونداي النترا الهجينة (CN7)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="29"/>
+            <source>HYUNDAI I30 (PD)</source>
+            <translation>هيونداي I30 (PD)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="30"/>
+            <source>HYUNDAI SONATA (DN8)</source>
+            <translation>هيونداي سوناتا (DN8)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="31"/>
+            <source>HYUNDAI SONATA HYBRID (DN8)</source>
+            <translation>هيونداي سوناتا الهجينة (DN8)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="32"/>
+            <source>HYUNDAI SONATA (LF)</source>
+            <translation>هيونداي سوناتا (LF)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="33"/>
+            <source>HYUNDAI SONATA TURBO (LF)</source>
+            <translation>هيونداي سوناتا توربو (LF)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="34"/>
+            <source>HYUNDAI SONATA HYBRID (LF)</source>
+            <translation>هيونداي سوناتا الهجينة (LF)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="35"/>
+            <source>HYUNDAI KONA (OS)</source>
+            <translation>هيونداي كونا (OS)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="36"/>
+            <source>HYUNDAI KONA EV (OS)</source>
+            <translation>هيونداي كونا EV (OS)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="37"/>
+            <source>HYUNDAI KONA HYBRID (OS)</source>
+            <translation>هيونداي كونا الهجينة (OS)</translation>
+    </message>
+    <message>.
+            <location filename="selfdrive/car/hyundai/valyes.py" line="38"/>
+            <source>HYUNDAI IONIQ ELECTRIC (AE)</source>
+            <translation>هيونداي IONIQ الكهربائية (AE)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="39"/>
+            <source>HYUNDAI IONIQ HYBRID (AE)</source>
+            <translation>هيونداي IONIQ الهجينة (AE)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="40"/>
+            <source>HYUNDAI SANTAFE (TM)</source>
+            <translation>هيونداي سانتافي (TM)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="41"/>
+            <source>HYUNDAI SANTAFE HYBRID (TM)</source>
+            <translation>هيونداي سانتافي الهجينة (TM)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="42"/>
+            <source>HYUNDAI PALISADE (LX2)</source>
+            <translation>هيونداي باليساد (LX2)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="43"/>
+            <source>HYUNDAI VELOSTER (JS)</source>
+            <translation>هيونداي فيلوستر (JS)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="44"/>
+            <source>HYUNDAI GRANDEUR (IG)</source>
+            <translation>هيونداي جراندور (IG)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="45"/>
+            <source>HYUNDAI GRANDEUR HYBRID (IG)</source>
+            <translation>هيونداي جراندور الهجينة (IG)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="46"/>
+            <source>HYUNDAI GRANDEUR FL (IG)</source>
+            <translation>هيونداي جراندور FL (IG)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="47"/>
+            <source>HYUNDAI GRANDEUR HYBRID FL (IG)</source>
+            <translation>هيونداي جراندور الهجينة FL (IG)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="48"/>
+            <source>HYUNDAI TUCSON (TL)</source>
+            <translation>هيونداي توسان (TL)</translation>
+    </message>
+    <message>
+            <location filename="selfdrive/car/hyundai/valyes.py" line="49"/>
+            <source>HYUNDAI NEXO (FE)</source>
+            <translation>هيونداي نيكسو (FE)</translation>
+    </message>
+    </context>
 </TS>
