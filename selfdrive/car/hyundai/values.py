@@ -469,6 +469,7 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x00CN7_ SCC F-CUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x00CN7_ SCC FHCUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x8799110AA000\xf1\x00CN7_ SCC FHCUP      1.00 1.01 99110-AA000         ',
+        b'\xf1\x8799110AA000\xf1\x00CN7_ SCC FNCUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x8799110AA000\xf1\x00CN7_ SCC F-CUP      1.00 1.01 99110-AA000         ',
       ],
       (Ecu.eps, 0x7d4, None): [
