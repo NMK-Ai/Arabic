@@ -502,6 +502,7 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x82CNCWD0AMFCXCSFFA',
         b'\xf1\x82CNCWD0AMFCXCSFFB',
         b'\xf1\x82CNCVD0AMFCXCSFFB',
+        b'\xf1\x82MCN70M40AQ700C01',
         b'\xf1\x870\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf1\x82CNDWD0AMFCXCSG8A',
       ],
     },
