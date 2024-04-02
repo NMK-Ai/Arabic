@@ -483,8 +483,6 @@ if Params().get_bool("FingerprintTwoSet"):
       ],
       (Ecu.esp, 0x7d1, None): [
         b'\xf1\x00CN ESC \t 101 \x10\x03 58910-AB800',
-        b'\xf1\x00CN ESC \r 105 \x10\x03 58910-AA800',
-        [b'\xf1\x8758910-AA800\xf1\x00CN ESC \r 105 \x10\x03 58910-AA800',
         b'\xf1\x8758910-AA800\xf1\x00CN ESC \t 104 \x08\x03 58910-AA800',
         b'\xf1\x8758910-AB800\xf1\x00CN ESC \t 101 \x10\x03 58910-AB800',
       ],
@@ -501,7 +499,6 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x82CNCWD0AMFCXCSFFA',
         b'\xf1\x82CNCWD0AMFCXCSFFB',
         b'\xf1\x82CNCVD0AMFCXCSFFB',
-        b'MCN70M40AQ700C01',
         b'\xf1\x870\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf1\x82CNDWD0AMFCXCSG8A',
       ],
     },
