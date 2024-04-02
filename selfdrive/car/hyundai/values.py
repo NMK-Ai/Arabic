@@ -464,6 +464,8 @@ if Params().get_bool("FingerprintTwoSet"):
       (Ecu.fwdRadar, 0x7d0, None): [
         b'\xf1\x00CN7_ SCC F-CUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x00CN7_ SCC FHCUP      1.00 1.01 99110-AA000         ',
+        b'\xf1\x00CN7_ SCC FNCUP      1.00 1.01 99110-AA000         ',
+        b'\xf1\x8799110AA000\xf1\x00CN7_ SCC FNCUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x8799110AA000\xf1\x00CN7_ SCC FHCUP      1.00 1.01 99110-AA000         ',
         b'\xf1\x8799110AA000\xf1\x00CN7_ SCC F-CUP      1.00 1.01 99110-AA000         ',
       ],
@@ -471,6 +473,8 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x87\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf1\x00CN7 MDPS C 1.00 1.06 \x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00 4CNDC106',
         b'\xf1\x8756310/AA070\xf1\x00CN7 MDPS C 1.00 1.06 56310/AA070 4CNDC106',
         b'\xf1\x8756310AA050\x00\xf1\x00CN7 MDPS C 1.00 1.06 56310AA050\x00 4CNDC106',
+        b'\xf1\x00CN7 MDPS C 1.00 1.06 56310/AA040 4CNDC106',
+        b'\xf1\x8756310/AA040\xf1\x00CN7 MDPS C 1.00 1.06 56310/AA040 4CNDC106',
       ],
       (Ecu.fwdCamera, 0x7c4, None): [
         b'\xf1\x00CN7 MFC  AT USA LHD 1.00 1.00 99210-AB000 200819',
@@ -479,12 +483,15 @@ if Params().get_bool("FingerprintTwoSet"):
       ],
       (Ecu.esp, 0x7d1, None): [
         b'\xf1\x00CN ESC \t 101 \x10\x03 58910-AB800',
+        b'\xf1\x00CN ESC \r 105 \x10\x03 58910-AA800',
+        [b'\xf1\x8758910-AA800\xf1\x00CN ESC \r 105 \x10\x03 58910-AA800',
         b'\xf1\x8758910-AA800\xf1\x00CN ESC \t 104 \x08\x03 58910-AA800',
         b'\xf1\x8758910-AB800\xf1\x00CN ESC \t 101 \x10\x03 58910-AB800',
       ],
       (Ecu.transmission, 0x7e1, None): [
         b'\xf1\x00HT6WA280BLHT6VA640A1CCN0N20NS5\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
         b'\xf1\x00HT6WA280BLHT6VA640A1CCN0N20NS5\x00\x00\x00\x00\x00\x00\xe8\xba\xce\xfa',
+        b'TCN0M20GB4\x00\x00\x00\x00\x00\x00',
         b'\xf1\x87CXMQFM2135005JB2E\xb9\x89\x98W\xa9y\x97h\xa9\x98\x99wxvwh\x87\177\xffx\xff\xff\xff,,\xf1\x89HT6VA640A1\xf1\x82CCN0N20NS5\x00\x00\x00\x00\x00\x00',
         b'\xf1\x87CXMQFM1916035JB2\x88vvgg\x87Wuwgev\xa9\x98\x88\x98h\x99\x9f\xffh\xff\xff\xff\xa5\xee\xf1\x89HT6VA640A1\xf1\x82CCN0N20NS5\x00\x00\x00\x00\x00\x00',
         b'\xf1\x87CXLQF40189012JL2f\x88\x86\x88\x88vUex\xb8\x88\x88\x88\x87\x88\x89fh?\xffz\xff\xff\xff\x08z\xf1\x89HT6VA640A1\xf1\x82CCN0N20NS5\x00\x00\x00\x00\x00\x00',
@@ -495,7 +502,10 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x82CNCWD0AMFCXCSFFA',
         b'\xf1\x82CNCWD0AMFCXCSFFB',
         b'\xf1\x82CNCVD0AMFCXCSFFB',
+        b'MCN70M40AQ700C01',
+        b'\xf1\x87           \xf1\x81           ',
         b'\xf1\x870\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf1\x82CNDWD0AMFCXCSG8A',
+        b'\xf1\x87           \xf1\x89CN7_05C04_SOP\x00\x00\x00\xf1\x82MCN70M40AQ700C01',
       ],
     },
     CAR.I30_PD: {
