@@ -930,7 +930,7 @@
     <message>
         <location filename="../qt/widgets/steerWidget.cc" line="125"/>
         <source>Controls smooth torque by the driver  From OpkrMaxSteeringAngle. def:0.002(5sec)</source>
-        <translation>يتحكم في عزم الدوران السلس من قبل السائق من OpkrMaxSteeringAngle. def:0.002(5sec)</translation>
+        <translation>يتحكم في عزم الدوران السلس من قبل السائق من NMKMaxSteeringAngle. def:0.002(5sec)</translation>
     </message>
     <message>
         <location filename="../qt/widgets/steerWidget.cc" line="135"/>
@@ -940,7 +940,7 @@
     <message>
         <location filename="../qt/widgets/steerWidget.cc" line="136"/>
         <source>Controls torque by steering angle From OpkrMaxSteeringAngle. def:0.001(10sec)</source>
-        <translation>يتحكم في عزم الدوران من خلال زاوية التوجيه من OpkrMaxSteeringAngle. def:0.001(10sec)</translation>
+        <translation>يتحكم في عزم الدوران من خلال زاوية التوجيه من NMKMaxSteeringAngle. def:0.001(10sec)</translation>
     </message>
     <message>
         <location filename="../qt/widgets/steerWidget.cc" line="145"/>
@@ -1881,7 +1881,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="2419"/>
         <source>RelBrake</source>
-        <translation>브레이크해제시</translation>
+        <translation>عند تحرير الفرامل</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="2421"/>
@@ -2635,7 +2635,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="5967"/>
         <source>Comma</source>
-        <translation>كوما</translation>
+        <translation>NMK</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="5968"/>
@@ -2708,7 +2708,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6120"/>
         <source>Set the Mapbox sytle to Comma/OPKR/User&apos;s</source>
-        <translation>Mapbox النظام Comma/OPKR/تعيين كمستخدم</translation>
+        <translation>Mapbox النظام Comma/NMK/تعيين كمستخدم</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6151"/>
@@ -2718,7 +2718,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6152"/>
         <source>OPKR</source>
-        <translation>OPKR</translation>
+        <translation>NMK</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6153"/>
@@ -3758,12 +3758,12 @@
     <message>
         <location filename="../qt/widgets/opkr.h" line="724"/>
         <source>C2 with CommaPower</source>
-        <translation>كوما2 مع منفذ الطاقة</translation>
+        <translation>القائد الآلي مع منفذ الطاقة</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.h" line="724"/>
         <source>This is for C2 users with Comma Power.</source>
-        <translation>هذا لمستخدمي كوما2 مع كوما للطاقة.</translation>
+        <translation>هذا لمستخدمي الجيل الثاني مع القائد الآلي للطاقة.</translation>
     </message>
 </context>
 <context>

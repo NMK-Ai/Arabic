@@ -19,7 +19,7 @@ AudibleAlert = car.CarControl.HUDControl.AudibleAlert
 EventName = car.CarEvent.EventName
 
 
-# Alert priorities
+# أولويات التنبيهات
 class Priority(IntEnum):
   LOWEST = 0
   LOWER = 1
@@ -29,7 +29,7 @@ class Priority(IntEnum):
   HIGHEST = 5
 
 
-# Event types
+# أنواع الأحداث
 class ET:
   ENABLE = 'enable'
   PRE_ENABLE = 'preEnable'
@@ -41,7 +41,7 @@ class ET:
   PERMANENT = 'permanent'
 
 
-# get event name from enum
+# الحصول على اسم الحدث من التعداد (enum)
 EVENT_NAME = {v: k for k, v in EventName.schema.enumerants.items()}
 
 try:
@@ -201,11 +201,11 @@ class StartupAlert(Alert):
                      Priority.LOWER, VisualAlert.none, AudibleAlert.none, 10.),
 
 
-# ********** helper functions **********
+# ********** وظائف مساعدة **********
 def get_display_speed(speed_ms: float, metric: bool) -> str:
-  speed = int(round(speed_ms * (CV.MS_TO_KPH if metric else CV.MS_TO_MPH)))
-  unit = 'km/h' if metric else 'mph'
-  return f"{speed} {unit}"
+  السرعة = int(round(speed_ms * (CV.MS_TO_KPH إذا كانت الوحدات متريّة else CV.MS_TO_MPH)))
+  الوحدة = 'كم/س' إذا كانت متريّة else 'ميل/س'
+  return f"{السرعة} {الوحدة}"
 
 
 # ********** alert callback functions **********
@@ -229,12 +229,12 @@ def user_soft_disable_alert(alert_text_2: str) -> AlertCallbackType:
 
 
 def below_engage_speed_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
-  return NoEntryAlert(f"Speed Below {get_display_speed(CP.minEnableSpeed, metric)}")
+  return NoEntryAlert(f"السرعة أقل من {get_display_speed(CP.minEnableSpeed, metric)}")
 
 
 def below_steer_speed_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
   return Alert(
-    f"Steer Unavailable Below {get_display_speed(CP.minSteerSpeed, metric)}",
+    f"التوجيه غير متوفر عندما تكون السرعة أقل من {get_display_speed(CP.minSteerSpeed, metric)}",
     "",
     AlertStatus.userPrompt, AlertSize.small,
     Priority.MID, VisualAlert.none, AudibleAlert.prompt, 0.4)
@@ -242,8 +242,8 @@ def below_steer_speed_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: 
 
 def calibration_incomplete_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
   return Alert(
-    "Calibration in Progress: %d%%" % sm['liveCalibration'].calPerc,
-    f"Drive Above {get_display_speed(MIN_SPEED_FILTER, metric)}",
+    f"المعايرة جارية: %d%%" % sm['liveCalibration'].calPerc,
+    f"قد السيارة بسرعة أكبر من {get_display_speed(MIN_SPEED_FILTER, metric)}",
     AlertStatus.normal, AlertSize.mid,
     Priority.LOWEST, VisualAlert.none, AudibleAlert.none, .2)
 
@@ -251,24 +251,25 @@ def calibration_incomplete_alert(CP: car.CarParams, sm: messaging.SubMaster, met
 def no_gps_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
   gps_integrated = sm['peripheralState'].pandaType in (log.PandaState.PandaType.uno, log.PandaState.PandaType.dos)
   return Alert(
-    tr(10),
-    tr(11) if gps_integrated else tr(12),
+    tr(10),  # ترجمة النصوص المرتبطة بالتنبيهات رقم 10
+    tr(11) if gps_integrated else tr(12),  # النصوص الخاصة بوضع GPS حسب النوع
     AlertStatus.normal, AlertSize.mid,
     Priority.LOWER, VisualAlert.none, AudibleAlert.none, .2, creation_delay=300.)
 
 
 def wrong_car_mode_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
-  text = tr(13)
+  text = tr(13)  # النص الأساسي للوضعية غير الصحيحة للسيارة
   if CP.carName == "honda":
-    text = tr(14)
+    text = tr(14)  # نص خاص بسيارات هوندا
   return NoEntryAlert(text)
 
 
 def joystick_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
   axes = sm['testJoystick'].axes
   gb, steer = list(axes)[:2] if len(axes) else (0., 0.)
-  vals = f"Gas: {round(gb * 100.)}%, Steer: {round(steer * 100.)}%"
-  return NormalPermanentAlert("Joystick Mode", vals)
+  vals = f"الوقود: {round(gb * 100.)}%, التوجيه: {round(steer * 100.)}%"
+  return NormalPermanentAlert("وضعية عصا التحكم (Joystick Mode)", vals)
+
 
 # opkr
 def can_error_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, soft_disable_time: int) -> Alert:
@@ -278,7 +279,7 @@ def can_error_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, so
     add_int = int(add, 0)
     f.close()
     return Alert(
-      "CAN Error: %s is missing\n Decimal Value : %d" % (add, add_int),
+      f"خطأ في CAN: العنصر {add} مفقود\n القيمة العشرية: {add_int}",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2, creation_delay=1.)
@@ -288,13 +289,13 @@ def can_error_alert(CP: car.CarParams, sm: messaging.SubMaster, metric: bool, so
     add_int = int(add, 0)
     f.close()
     return Alert(
-      "CAN Error: %s is timeout\n Decimal Value : %d" % (add, add_int),
+      f"خطأ في CAN: العنصر {add} تجاوز الوقت المسموح\n القيمة العشرية: {add_int}",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2, creation_delay=1.)
   else:
     return Alert(
-      "CAN Error: Check Harness Connections",
+      "خطأ في CAN: تحقق من توصيلات الأسلاك (Harness)",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2, creation_delay=1.)
@@ -352,12 +353,12 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   },
 
   EventName.cruiseMismatch: {
-    #ET.PERMANENT: ImmediateDisableAlert("openpilot failed to cancel cruise"),
+#ET.PERMANENT: تنبيه التعطيل الفوري ("فشل نظام القائد الآلي في إلغاء التحكم في السرعة"),
   },
 
-  # openpilot doesn't recognize the car. This switches openpilot into a
-  # read-only mode. This can be solved by adding your fingerprint.
-  # See https://github.com/commaai/openpilot/wiki/Fingerprinting for more information
+# نظام القائد الآلي (NMK.AI) لا يتعرف على السيارة. يتم تحويل النظام إلى وضع القراءة فقط.
+# يمكن حل هذه المشكلة عن طريق إضافة بصمة السيارة (Fingerprint).
+# لمزيد من المعلومات، راجع الرابط: https://github.com/commaai/openpilot/wiki/Fingerprinting
   EventName.carUnrecognized: {
     ET.PERMANENT: NormalPermanentAlert(tr(32),
                                        tr(33),
@@ -389,7 +390,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       Priority.LOW, VisualAlert.ldw, AudibleAlert.prompt, 3.),
   },
 
-  # ********** events only containing alerts that display while engaged **********
+# ********** أحداث تحتوي فقط على التنبيهات التي تظهر أثناء تفعيل النظام **********
 
   EventName.gasPressed: {
     ET.PRE_ENABLE: Alert(
@@ -399,14 +400,16 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       Priority.LOWEST, VisualAlert.none, AudibleAlert.none, .1, creation_delay=1.),
   },
 
-  # openpilot tries to learn certain parameters about your car by observing
-  # how the car behaves to steering inputs from both human and openpilot driving.
-  # This includes:
-  # - steer ratio: gear ratio of the steering rack. Steering angle divided by tire angle
-  # - tire stiffness: how much grip your tires have
-  # - angle offset: most steering angle sensors are offset and measure a non zero angle when driving straight
-  # This alert is thrown when any of these values exceed a sanity check. This can be caused by
-  # bad alignment or bad sensor data. If this happens consistently consider creating an issue on GitHub
+# يحاول نظام القائد الآلي (NMK.AI) تعلم بعض المعايير الخاصة بسيارتك من خلال مراقبة
+# كيفية استجابة السيارة لمدخلات التوجيه سواء من الإنسان أو من نظام القائد الآلي.
+# هذه المعايير تشمل:
+# - نسبة التوجيه: نسبة التروس في نظام التوجيه. زاوية التوجيه مقسومة على زاوية الإطارات.
+# - صلابة الإطارات: مقدار التماسك الذي توفره الإطارات.
+# - انحراف الزاوية: معظم مستشعرات زاوية التوجيه تحتوي على انحراف وتقيس زاوية غير صفرية عند القيادة في خط مستقيم.
+# يتم عرض هذا التنبيه عندما تتجاوز أي من هذه القيم الحد المعقول. يمكن أن يحدث ذلك بسبب:
+# - سوء في محاذاة السيارة (alignment).
+# - بيانات خاطئة من المستشعرات.
+# إذا تكرر هذا التنبيه بشكل منتظم، يُنصح بإنشاء تقرير على GitHub.
   EventName.vehicleModelInvalid: {
     ET.NO_ENTRY: NoEntryAlert(tr(41)),
     ET.SOFT_DISABLE: soft_disable_alert(tr(42)),
@@ -560,24 +563,24 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       Priority.LOW, VisualAlert.none, AudibleAlert.prompt, 1.),
   },
 
-  # Thrown when the fan is driven at >50% but is not rotating
+# يتم إطلاق التنبيه عندما يتم تشغيل المروحة بأكثر من 50% ولكنها لا تدور
   EventName.fanMalfunction: {
     ET.PERMANENT: NormalPermanentAlert(tr(71), tr(72)),
-  },
+},
 
-  # Camera is not outputting frames at a constant framerate
+# يتم إطلاق التنبيه عندما لا تقوم الكاميرا بإخراج الإطارات بمعدل إطار ثابت
   EventName.cameraMalfunction: {
     ET.PERMANENT: NormalPermanentAlert(tr(73), tr(74)),
-  },
+},
 
-  # Unused
+# غير مستخدم
   EventName.gpsMalfunction: {
     ET.PERMANENT: NormalPermanentAlert(tr(75), tr(76)),
-  },
+},
 
-  # When the GPS position and localizer diverge the localizer is reset to the
-  # current GPS position. This alert is thrown when the localizer is reset
-  # more often than expected.
+# عندما يكون هناك اختلاف بين موقع GPS والموقع المحلي (localizer)،
+# يتم إعادة تعيين الموقع المحلي إلى موقع GPS الحالي. يتم إطلاق هذا
+# التنبيه عندما يتم إعادة التعيين أكثر من المتوقع.
   EventName.localizerMalfunction: {
     ET.PERMANENT: NormalPermanentAlert(tr(77), tr(78)),
   },
@@ -640,7 +643,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       Priority.LOW, VisualAlert.none, AudibleAlert.none, 1.),
   },
 
-  # ********** events that affect controls state transitions **********
+# ********** الأحداث التي تؤثر على انتقال حالات التحكم **********
 
   EventName.pcmEnable: {
     ET.ENABLE: EngagementAlert(AudibleAlert.engage),
@@ -790,11 +793,11 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
     ET.NO_ENTRY: NoEntryAlert(tr(113)),
   },
 
-  # This alert is thrown when the calibration angles are outside of the acceptable range.
-  # For example if the device is pointed too much to the left or the right.
-  # Usually this can only be solved by removing the mount from the windshield completely,
-  # and attaching while making sure the device is pointed straight forward and is level.
-  # See https://comma.ai/setup for more information
+# يتم عرض هذا التنبيه عندما تكون زوايا المعايرة خارج النطاق المقبول.
+# على سبيل المثال، إذا كان الجهاز موجهًا كثيرًا إلى اليسار أو اليمين.
+# عادةً لا يمكن حل هذه المشكلة إلا عن طريق إزالة الحامل من الزجاج الأمامي بالكامل،
+# وإعادة تثبيته مع التأكد من أن الجهاز موجه مباشرة إلى الأمام وفي وضع مستوٍ.
+# لمزيد من المعلومات، قم بزيارة الرابط: https://comma.ai/setup
   EventName.calibrationInvalid: {
     ET.PERMANENT: NormalPermanentAlert(tr(114), tr(115)),
     ET.SOFT_DISABLE: soft_disable_alert(tr(116)),
@@ -827,10 +830,10 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
     ET.NO_ENTRY: NoEntryAlert(tr(127)),
   },
 
-  # Different openpilot services communicate between each other at a certain
-  # interval. If communication does not follow the regular schedule this alert
-  # is thrown. This can mean a service crashed, did not broadcast a message for
-  # ten times the regular interval, or the average interval is more than 10% too high.
+# تتواصل خدمات القائد الآلي (openpilot) المختلفة مع بعضها البعض بفواصل زمنية محددة.
+# إذا لم يتم الالتزام بالجدول الزمني المنتظم للتواصل، يتم عرض هذا التنبيه.
+# قد يشير ذلك إلى أن إحدى الخدمات قد تعطلت، أو لم ترسل رسالة لعشر مرات ضعف الفاصل الزمني المنتظم،
+# أو أن المتوسط الزمني للفواصل قد زاد بأكثر من 10% عن المتوقع.
   EventName.commIssue: {
     ET.WARNING: Alert(
       tr(128),
@@ -844,7 +847,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
     ET.NO_ENTRY: NoEntryAlert(tr(131)),
   },  
 
-  # Thrown when manager detects a service exited unexpectedly while driving
+# يتم عرض هذا التنبيه عندما يكتشف مدير النظام أن إحدى الخدمات توقفت بشكل غير متوقع أثناء القيادة
   EventName.processNotRunning: {
     ET.NO_ENTRY: NoEntryAlert(tr(132)),
   },
@@ -854,26 +857,26 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
     ET.NO_ENTRY: NoEntryAlert(tr(134)),
   },
 
-  # Every frame from the camera should be processed by the model. If modeld
-  # is not processing frames fast enough they have to be dropped. This alert is
-  # thrown when over 20% of frames are dropped.
+# يجب أن تتم معالجة كل إطار من الكاميرا بواسطة النموذج (modeld). إذا لم يتمكن النموذج
+# من معالجة الإطارات بسرعة كافية، يجب تجاهلها. يتم عرض هذا التنبيه عندما يتم
+# تجاهل أكثر من 20% من الإطارات.
   EventName.modeldLagging: {
     ET.SOFT_DISABLE: soft_disable_alert(tr(135)),
     ET.NO_ENTRY: NoEntryAlert(tr(136)),
   },
 
-  # Besides predicting the path, lane lines and lead car data the model also
-  # predicts the current velocity and rotation speed of the car. If the model is
-  # very uncertain about the current velocity while the car is moving, this
-  # usually means the model has trouble understanding the scene. This is used
-  # as a heuristic to warn the driver.
+# بالإضافة إلى التنبؤ بالمسار وخطوط الحارات وبيانات السيارة الأمامية، يقوم النموذج
+# أيضًا بالتنبؤ بالسرعة الحالية وسرعة الدوران للسيارة. إذا كان النموذج
+# غير واثق بدرجة كبيرة من السرعة الحالية أثناء حركة السيارة، فإن ذلك
+# يعني عادةً أن النموذج يواجه صعوبة في فهم المشهد. يتم استخدام هذه الحالة
+# كآلية استدلالية لتحذير السائق.
   EventName.posenetInvalid: {
     ET.SOFT_DISABLE: soft_disable_alert(tr(137)),
     ET.NO_ENTRY: NoEntryAlert(tr(138)),
   },
 
-  # When the localizer detects an acceleration of more than 40 m/s^2 (~4G) we
-  # alert the driver the device might have fallen from the windshield.
+# عندما يكتشف محدد الموقع (localizer) تسارعًا يزيد عن 40 م/ث^2 (~4G)،
+# يتم تنبيه السائق بأن الجهاز قد يكون قد سقط من الزجاج الأمامي.
   EventName.deviceFalling: {
     ET.SOFT_DISABLE: soft_disable_alert(tr(139)),
     ET.NO_ENTRY: NoEntryAlert(tr(140)),
@@ -886,8 +889,8 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   },
 
   EventName.highCpuUsage: {
-    #ET.SOFT_DISABLE: soft_disable_alert("System Malfunction: Reboot Your Device"),
-    #ET.PERMANENT: NormalPermanentAlert("System Malfunction", "Reboot your Device"),
+#ET.SOFT_DISABLE: تنبيه تعطيل مؤقت ("خلل في النظام: أعد تشغيل جهازك"),
+#ET.PERMANENT: تنبيه دائم ("خلل في النظام", "أعد تشغيل جهازك"),
     ET.NO_ENTRY: NoEntryAlert(tr(145)),
   },
 
@@ -919,18 +922,18 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
                                        creation_delay=30.),
   },
 
-  # Sometimes the USB stack on the device can get into a bad state
-  # causing the connection to the panda to be lost
+# أحيانًا قد يواجه نظام USB على الجهاز حالة سيئة
+# مما يتسبب في فقدان الاتصال بجهاز الباندا.
   EventName.usbError: {
     ET.SOFT_DISABLE: soft_disable_alert(tr(153)),
     ET.PERMANENT: NormalPermanentAlert(tr(154), ""),
     ET.NO_ENTRY: NoEntryAlert(tr(155)),
   },
 
-  # This alert can be thrown for the following reasons:
-  # - No CAN data received at all
-  # - CAN data is received, but some message are not received at the right frequency
-  # If you're not writing a new car port, this is usually cause by faulty wiring
+# يمكن إصدار هذا التنبيه للأسباب التالية:
+# - لم يتم استقبال أي بيانات CAN على الإطلاق.
+# - يتم استقبال بيانات CAN، ولكن بعض الرسائل لا تصل بالتردد الصحيح.
+# إذا كنت لا تعمل على إنشاء منفذ جديد لسيارة، فعادةً ما يكون السبب هو أسلاك معطوبة.
   EventName.canError: {
     ET.PERMANENT: can_error_alert,
     ET.IMMEDIATE_DISABLE: ImmediateDisableAlert(tr(156)),
@@ -974,24 +977,24 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
     ET.NO_ENTRY: NoEntryAlert(tr(167)),
   },
 
-  # On cars that use stock ACC the car can decide to cancel ACC for various reasons.
-  # When this happens we can no long control the car so the user needs to be warned immediately.
+# في السيارات التي تستخدم نظام تثبيت السرعة التكيفي (ACC) المدمج من المصنع،
+# قد تقرر السيارة إلغاء تفعيل نظام ACC لأسباب مختلفة.
+# عندما يحدث ذلك، لا يمكن للنظام التحكم بالسيارة بعد الآن، لذلك يجب تحذير المستخدم فورًا.
   EventName.cruiseDisabled: {
     ET.IMMEDIATE_DISABLE: ImmediateDisableAlert(tr(168)),
   },
 
-  # For planning the trajectory Model Predictive Control (MPC) is used. This is
-  # an optimization algorithm that is not guaranteed to find a feasible solution.
-  # If no solution is found or the solution has a very high cost this alert is thrown.
+# لتخطيط مسار القيادة يتم استخدام التحكم التنبؤي النموذجي (MPC).
+# وهو عبارة عن خوارزمية تحسين لا تضمن دائمًا إيجاد حل ممكن.
+# إذا لم يتم العثور على حل أو إذا كان الحل ذا تكلفة عالية جدًا، يتم عرض هذا التنبيه.
   EventName.plannerError: {
     ET.IMMEDIATE_DISABLE: ImmediateDisableAlert(tr(169)),
     ET.NO_ENTRY: NoEntryAlert(tr(170)),
   },
 
-  # When the relay in the harness box opens the CAN bus between the LKAS camera
-  # and the rest of the car is separated. When messages from the LKAS camera
-  # are received on the car side this usually means the relay hasn't opened correctly
-  # and this alert is thrown.
+# عندما يفتح المرحل (relay) في صندوق التوصيلات، يتم فصل ناقل CAN بين كاميرا LKAS
+# وبقية أجزاء السيارة. إذا تم استقبال رسائل من كاميرا LKAS على جانب السيارة،
+# فهذا يعني عادةً أن المرحل لم يفتح بشكل صحيح، ويتم عرض هذا التنبيه.
   EventName.relayMalfunction: {
     ET.IMMEDIATE_DISABLE: ImmediateDisableAlert(tr(171)),
     ET.PERMANENT: NormalPermanentAlert(tr(172), tr(173)),
@@ -1015,7 +1018,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       Priority.HIGH, VisualAlert.none, AudibleAlert.none, 3.),
   },
 
-  # When the car is driving faster than most cars in the training data, the model outputs can be unpredictable.
+# عندما تسير السيارة بسرعة أعلى من معظم السيارات في بيانات التدريب، قد تكون مخرجات النموذج غير متوقعة.
   EventName.speedTooHigh: {
     ET.WARNING: Alert(
       tr(180),
@@ -1031,8 +1034,8 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   },
 
   EventName.lkasDisabled: {
-    # ET.PERMANENT: NormalPermanentAlert("LKAS Disabled: Enable LKAS to engage"),
-    # ET.NO_ENTRY: NoEntryAlert("LKAS Disabled"),
+# ET.PERMANENT: تنبيه دائم عادي ("تم تعطيل LKAS: قم بتفعيل LKAS للتشغيل"),
+# ET.NO_ENTRY: تنبيه عدم دخول ("تم تعطيل LKAS"),
     ET.WARNING: Alert(
       tr(185),
       "",
@@ -1041,8 +1044,8 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   },
 
   EventName.lkasEnabled: {
-    # ET.PERMANENT: NormalPermanentAlert("LKAS Disabled: Enable LKAS to engage"),
-    # ET.NO_ENTRY: NoEntryAlert("LKAS Disabled"),
+# ET.PERMANENT: تنبيه دائم عادي ("تم تعطيل نظام المساعدة في الحفاظ على المسار (LKAS): قم بتفعيله للتشغيل"),
+# ET.NO_ENTRY: تنبيه منع الدخول ("تم تعطيل نظام المساعدة في الحفاظ على المسار (LKAS)"),
     ET.WARNING: Alert(
       tr(186),
       "",

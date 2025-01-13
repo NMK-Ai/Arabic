@@ -1,52 +1,52 @@
 {
   "Offroad_ChargeDisabled": {
-    "text": "EON charging disabled after car being off for more than 30 hours. Turn ignition on to start charging again.",
+    "text": "تم تعطيل شحن جهاز NMK.AI بعد توقف السيارة لأكثر من 30 ساعة. قم بتشغيل الإشعال لبدء الشحن مرة أخرى.",
     "severity": 0
   },
   "Offroad_TemperatureTooHigh": {
-    "text": "Device temperature too high. System won't start.",
+    "text": "درجة حرارة الجهاز مرتفعة جدًا. النظام لن يبدأ.",
     "severity": 1
   },
   "Offroad_ConnectivityNeededPrompt": {
-    "text": "Immediately connect to the internet to check for updates. If you do not connect to the internet, openpilot won't engage in ",
+    "text": "قم بالاتصال بالإنترنت فورًا للتحقق من التحديثات. إذا لم تقم بالاتصال بالإنترنت، لن يعمل نظام القائد الآلي.",
     "severity": 0,
-    "_comment": "Append the number of days at the end of the text"
+    "_comment": "أضف عدد الأيام في نهاية النص"
   },
   "Offroad_ConnectivityNeeded": {
-    "text": "Connect to internet to check for updates. openpilot won't automatically start until it connects to internet to check for updates.",
+    "text": "اتصل بالإنترنت للتحقق من التحديثات. لن يبدأ نظام القائد الآلي تلقائيًا حتى يتم الاتصال بالإنترنت للتحقق من التحديثات.",
     "severity": 1
   },
   "Offroad_UpdateFailed": {
-    "text": "Unable to download updates\n",
+    "text": "تعذر تنزيل التحديثات\n",
     "severity": 1,
-    "_comment": "Append the command and error to the text."
+    "_comment": "أضف الأمر والخطأ إلى النص."
   },
   "Offroad_InvalidTime": {
-    "text": "Invalid date and time settings, system won't start. Connect to internet to set time.",
+    "text": "إعدادات التاريخ والوقت غير صحيحة، النظام لن يبدأ. قم بالاتصال بالإنترنت لضبط الوقت.",
     "severity": 1
   },
   "Offroad_IsTakingSnapshot": {
-    "text": "Taking camera snapshots. System won't start until finished.",
+    "text": "يتم أخذ لقطات للكاميرا. لن يبدأ النظام حتى الانتهاء.",
     "severity": 0
   },
   "Offroad_NeosUpdate": {
-    "text": "An update to your device's operating system is downloading in the background. You will be prompted to update when it's ready to install.",
+    "text": "يتم تنزيل تحديث لنظام تشغيل جهازك في الخلفية. سيتم إعلامك عندما يكون جاهزًا للتثبيت.",
     "severity": 0
   },
   "Offroad_UnofficialHardware": {
-    "text": "Device failed to register. It seems that API server is not available or not online. Please retry to register when the server is back to normal.",
+    "text": "فشل تسجيل الجهاز. يبدو أن خادم API غير متوفر أو غير متصل. يرجى المحاولة مرة أخرى عند عودة الخادم للعمل بشكل طبيعي.",
     "severity": 1
   },
   "Offroad_StorageMissing": {
-    "text": "NVMe drive not mounted.",
+    "text": "لم يتم تركيب وحدة تخزين NVMe.",
     "severity": 1
   },
   "Offroad_CarUnrecognized": {
-    "text": "openpilot was unable to identify your car. Your car is either unsupported or its ECUs are not recognized. Please submit a pull request to add the firmware versions to the proper vehicle. Need help? Join discord.comma.ai.",
+    "text": "لم يتمكن القائد الآلي من التعرف على سيارتك. سيارتك إما غير مدعومة أو أن وحدات التحكم الإلكترونية (ECUs) الخاصة بها غير معروفة. يرجى إرسال طلب تعديل (Pull Request) لإضافة إصدارات البرامج الثابتة إلى السيارة المناسبة. تحتاج مساعدة؟ انضم إلى discord.NMK.AI.",
     "severity": 0
   },
   "Offroad_NoFirmware": {
-    "text": "openpilot was unable to identify your car. Check integrity of cables and ensure all connections are secure, particularly that the comma power is fully inserted in the OBD-II port of the vehicle. Need help? Join discord.comma.ai.",
+    "text": "لم يتمكن القائد الآلي من التعرف على سيارتك. تحقق من سلامة الكابلات وتأكد من أن جميع الاتصالات آمنة، خاصة أن وحدة طاقة NMK متصلة بالكامل بمنفذ OBD-II الخاص بالمركبة. تحتاج مساعدة؟ انضم إلى discord.NMK.AI.",
     "severity": 0
   }
 }
