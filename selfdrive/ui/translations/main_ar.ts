@@ -337,7 +337,7 @@
     <message>
         <location filename="../qt/widgets/ssh_keys.cc" line="7"/>
         <source>Warning: This grants SSH access to all public keys in your GitHub settings. Never enter a GitHub username other than your own. A comma employee will NEVER ask you to add their GitHub username.</source>
-        <translation>يمنح هذا وصول SSH إلى جميع المفاتيح العامة في إعدادات GitHub. لا تدخل أبدًا اسم مستخدم GitHub بخلاف اسم المستخدم الخاص بك. لن يطلب منك موظف كوما أبدًا إضافة اسم مستخدم GitHub الخاص به.</translation>
+        <translation>يمنح هذا وصول SSH إلى جميع المفاتيح العامة في إعدادات GitHub. لا تدخل أبدًا اسم مستخدم GitHub بخلاف اسم المستخدم الخاص بك. لن يطلب منك موظف NMK أبدًا إضافة اسم مستخدم GitHub الخاص به.</translation>
     </message>
     <message>
         <location filename="../qt/widgets/ssh_keys.cc" line="13"/>
@@ -1881,7 +1881,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="2419"/>
         <source>RelBrake</source>
-        <translation>브레이크해제시</translation>
+        <translation>تحرير الفرامل</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="2421"/>
@@ -2546,7 +2546,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="5778"/>
         <source>Set TS values with comma</source>
-        <translation>قم بتعيين قيم TS بكوما</translation>
+        <translation>قم بتعيين قيم TS بالقائد الآلي</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="5789"/>
@@ -2718,7 +2718,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6152"/>
         <source>OPKR</source>
-        <translation>OPKR</translation>
+        <translation>NMK</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6153"/>
@@ -2972,7 +2972,7 @@
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6910"/>
         <source>Set Speed(m/s) values with comma</source>
-        <translation>اضبط قيم السرعة (م / ث) بكوما</translation>
+        <translation>اضبط قيم السرعة (م / ث) NMK</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.cc" line="6910"/>
@@ -3758,12 +3758,12 @@
     <message>
         <location filename="../qt/widgets/opkr.h" line="724"/>
         <source>C2 with CommaPower</source>
-        <translation>كوما2 مع منفذ الطاقة</translation>
+        <translation>القائد الآلي مع منفذ الطاقة</translation>
     </message>
     <message>
         <location filename="../qt/widgets/opkr.h" line="724"/>
         <source>This is for C2 users with Comma Power.</source>
-        <translation>هذا لمستخدمي كوما2 مع كوما للطاقة.</translation>
+        <translation>هذا لمستخدمي القائد الآلي مع منفذ الطاقة .</translation>
     </message>
 </context>
 <context>
