@@ -5963,7 +5963,7 @@ OPKRServerSelect::OPKRServerSelect() : AbstractControl(tr("API Server"), tr("Set
   hlayout->addWidget(&btn1);
   hlayout->addWidget(&btn2);
   hlayout->addWidget(&btn3);
-  btn1.setText(tr("OPKR"));
+  btn1.setText(tr("NMK"));
   btn2.setText(tr("Comma"));
   btn3.setText(tr("User's"));
 
