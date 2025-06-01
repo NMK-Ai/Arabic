@@ -1,14 +1,12 @@
 from opendbc.car.structs import CarParams
 from opendbc.car.hyundai.values import CAR
-
 from opendbc.sunnypilot.car.fw_versions_ext import merge_fw_versions
 from opendbc.sunnypilot.car.hyundai.fingerprints_ext import FW_VERSIONS_EXT
 
 Ecu = CarParams.Ecu
 
-# The existence of SCC or RDR in the fwdRadar FW usually determines the radar's function,
-# i.e. if it sends the SCC messages or if another ECU like the camera or ADAS Driving ECU does
-
+# وجود SCC أو RDR في إصدار برنامج الرادار الأمامي يحدد عادةً وظيفة الرادار،
+# أي ما إذا كان هو من يرسل رسائل SCC أو إذا كانت وحدة أخرى مثل الكاميرا أو وحدة ADAS تقوم بذلك
 
 FW_VERSIONS = {
   CAR.HYUNDAI_AZERA_6TH_GEN: {
