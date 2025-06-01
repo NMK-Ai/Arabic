@@ -1,6 +1,13 @@
+
+"""
+هذا الملف hyundiacanf.py تمت إضافته بواسطة NMK.
+يتضمن تعريفات لفئات CAN Bus الخاصة بمنصات هيونداي التي تعمل ببروتوكول CAN‏-FD.
+تمت إضافة تعليقات باللغة العربية لسهولة القراءة والصيانة.
+"""
 import copy
 import numpy as np
 from opendbc.car import CanBusBase
+
 from opendbc.car.hyundai.values import HyundaiFlags
 
 
