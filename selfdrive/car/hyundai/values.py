@@ -1,3 +1,5 @@
+# تعديل NMK: إضافة سطر فارغ للتأكيد
+
 from dataclasses import dataclass
 from typing import Dict, List, Union
 
@@ -56,7 +58,8 @@ class CAR:
   K5_DL3 = "KIA K5 (DL3)"
   SPORTAGE_QL = "KIA SPORTAGE (QL)"
   SORENTO_UM = "KIA SORENTO (UM)"
-  STINGER_CK = "KIA STINGER (CK)"
+  STINGER_2018 = "KIA STINGER (CK)"
+  STINGER_2021 = "KIA STINGER (CK_FL)"
   NIRO_EV_DE = "KIA NIRO EV (DE)"
   NIRO_HEV_DE = "KIA NIRO HYBRID (DE)"
   K7_YG = "KIA K7 (YG)"
@@ -121,6 +124,7 @@ CAR_INFO: Dict[str, Union[HyundaiCarInfo, List[HyundaiCarInfo]]] = {
   CAR.SPORTAGE_QL: HyundaiCarInfo("Kia Sportage"),
   CAR.SORENTO_UM: HyundaiCarInfo("Kia Sorento 2018-19", video_link="https://www.youtube.com/watch?v=Fkh3s6WHJz8"),
   CAR.STINGER_CK: HyundaiCarInfo("Kia Stinger 2018", video_link="https://www.youtube.com/watch?v=MJ94qoofYw0", harness=Harness.hyundai_c),
+  CAR.STINGER_CK_FL: HyundaiCarInfo("Kia Stinger 2021", video_link="https://www.youtube.com/watch?v=MJ94qoofYw0", harness=Harness.hyundai_k),
   CAR.NIRO_EV_DE: HyundaiCarInfo("Kia Niro Electric 2019-22", "All", video_link="https://www.youtube.com/watch?v=lT7zcG6ZpGo"),
   CAR.NIRO_HEV_DE: HyundaiCarInfo("Kia Niro Plug-In Hybrid 2019", min_enable_speed=10. * CV.MPH_TO_MS, harness=Harness.hyundai_c),
   CAR.K7_YG: HyundaiCarInfo("Kia K7 2016-19", harness=Harness.hyundai_c),
@@ -732,6 +736,27 @@ if Params().get_bool("FingerprintTwoSet"):
         b'\xf1\x87VDHLG17000192DK2xdFffT\xa5VUD$DwT\x86wveVeeD&T\x99\xba\x8f\xff\xcc\x99\xf1\x81E21\x00\x00\x00\x00\x00\x00\x00\xf1\x00bcsh8p54  E21\x00\x00\x00\x00\x00\x00\x00SCK0T33NB0\x88\xa2\xe6\xf0',
       ],
     },
+      CAR.KIA_STINGER_2022: {
+    (Ecu.fwdRadar, 0x7d0, None): [
+      b'\xf1\x00CK__ SCC F-CUP      1.00 1.00 99110-J5500         ',
+      b'\xf1\x00CK__ SCC FHCUP      1.00 1.00 99110-J5500         ',
+      b'\xf1\x00CK__ SCC FHCUP      1.00 1.00 99110-J5600         ',
+      b'\xf1\x00CK__ SCC FHCUP      1.00 1.01 99110-J5100         ',
+    ],
+    (Ecu.eps, 0x7d4, None): [
+      b'\xf1\x00CK  MDPS R 1.00 5.03 57700-J5300 4C2CL503',
+      b'\xf1\x00CK  MDPS R 1.00 5.03 57700-J5320 4C2VL503',
+      b'\xf1\x00CK  MDPS R 1.00 5.03 57700-J5380 4C2VR503',
+      b'\xf1\x00CK  MDPS R 1.00 5.03 57700-J5520 4C4VL503',
+      b'\xf1\x00CK  MDPS R 1.00 5.04 57700-J5520 4C4VL504',
+    ],
+    (Ecu.fwdCamera, 0x7c4, None): [
+      b'\xf1\x00CK  MFC  AT AUS RHD 1.00 1.00 99211-J5500 210622',
+      b'\xf1\x00CK  MFC  AT KOR LHD 1.00 1.00 99211-J5500 210622',
+      b'\xf1\x00CK  MFC  AT USA LHD 1.00 1.00 99211-J5500 210622',
+      b'\xf1\x00CK  MFC  AT USA LHD 1.00 1.03 99211-J5000 201209',
+    ],
+  },
     CAR.NIRO_EV_DE: {
       (Ecu.fwdRadar, 0x7D0, None): [
         b'\xf1\x00DEev SCC F-CUP      1.00 1.03 96400-Q4100         \xf1\xa01.03',
