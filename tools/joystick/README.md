@@ -51,3 +51,35 @@ Now start your car and openpilot should go into joystick mode with an alert on s
 Make sure the conditions are met in the panda to allow controls (e.g. cruise control engaged). You can also make a modification to the panda code to always allow controls.
 
 ![](steer.gif)
+
+---
+
+## شرح بالعربية
+
+### المتطلبات
+- جهاز يعمل بنظام openpilot
+- حاسوب (يفضل Ubuntu 20.04 أو أحدث)
+- يد تحكم (Joystick/Gamepad) أو لوحة مفاتيح
+
+### خطوات الإعداد السريعة
+1. استنسخ openpilot:
+   ```bash
+   git clone https://github.com/commaai/openpilot.git
+   cd openpilot
+   git submodule update --init
+   ```
+2. ثبيت التبعيات عبر `./setup.py` أو تطبيق ما في README الأصلي.
+3. وصل يد التحكم أو تأكد من عمل لوحة المفاتيح.
+4. شغل السكربت:
+   ```bash
+   tools/joystick/joystickd.py --keyboard   # للوحة المفاتيح
+   tools/joystick/joystickd.py              # ليد التحكم
+   ```
+5. تأكد أن السيارة في وضع Offroad قبل البدء.
+
+### ملاحظات
+- أزرار WASD تزيد/تنقص السرعة والتوجيه بنسبة 5٪ عند استخدام لوحة المفاتيح.
+- عند استخدام يد التحكم ستظهر خريطة الأزرار والمحاور في الطرفية تلقائياً.
+- عند التشغيل عبر الشبكة يجب ضبط متغير البيئة `ZMQ=1`.
+
+> تمت إضافة هذا القسم العربي لتسهيل الفهم على المستخدمين العرب.
